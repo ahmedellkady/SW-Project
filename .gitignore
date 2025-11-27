@@ -1,2 +1,25 @@
-.idea
-.vscode
+# CLion / JetBrains
+.idea/
+cmake-build-*/
+
+# VS Code
+.vscode/
+
+# CMake
+CMakeFiles/
+CMakeCache.txt
+Makefile
+cmake_install.cmake
+
+# Build outputs
+*.o
+*.obj
+*.exe
+*.out
+*.dll
+*.so
+*.a
+
+# Other
+shelf/
+workspace.xml
