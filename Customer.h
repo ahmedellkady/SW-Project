@@ -10,6 +10,8 @@
 
 class Customer : public User {
 public:
+
+
     Customer() = delete;
     Customer(string e, string n, string p, int age) : User(e, n, p, age) {};
     void bookSeat(Movie movie,ShowTime showTime);

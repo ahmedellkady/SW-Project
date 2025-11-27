@@ -9,8 +9,11 @@
 #include "globals.h"
 
 
+Admin::Admin(): User("", "string n", "string p", 0) {
+}
+
 void Admin::displayRole() {
-    cout<<"Admin::displayRole()"<<endl;
+    cout<<"Admin"<<endl;
 }
 void Admin::addMovie(Movie movie ) {
     movies.push_back(movie);
@@ -31,4 +34,16 @@ void Admin::removeMovie(int id) {
         cout << "Movie with ID " << id << " not found.\n";
     }
 }
+vector<Customer> Admin::listCustomers() {
+
+    for (auto &u : Customers) {
+        cout << "\033[33m\033[3mID #"
+             << u.getId()
+             << "\033[0m : ";
+        u.getName();
+    }
+    return ::Customers;
+}
+
+
 

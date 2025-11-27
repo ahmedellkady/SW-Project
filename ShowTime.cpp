@@ -16,4 +16,5 @@ void ShowTime::showAvailableSeats() {
             cout << "Seat " << i + 1 << " is available.\n";
         }
     }
+
 }

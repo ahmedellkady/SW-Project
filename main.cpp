@@ -5,7 +5,7 @@
 #include <vector>
 #include "Customer.h"
 #include "globals.h"
-
+#include "Admin.h"
 using namespace std;
 
 // Function declarations
@@ -22,7 +22,7 @@ int main() {
 
     while (running) {
         printMenu(authMenu, choice);
-        
+
         int action = makeAction(choice, authMenu.size());
 
         switch (action) {

@@ -2,6 +2,8 @@
 #define USER_H
 
 #include <string>
+
+#include "Movie.h"
 using namespace std;
 
 class User {
@@ -21,6 +23,7 @@ public:
     bool getIsAdmin() const { return isAdmin; }
     static int nextId;
     User(string e, string n, string p, int age);
+    vector<Movie> listMovies();
     virtual void displayRole() = 0;
 };
 

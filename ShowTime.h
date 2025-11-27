@@ -24,6 +24,7 @@ class ShowTime {
         isfull = false;
     }
     void showAvailableSeats();
+
 };
 
 

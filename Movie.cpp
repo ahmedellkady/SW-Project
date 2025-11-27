@@ -16,6 +16,7 @@ Movie::Movie( string title, string description,
     this->category = category;
     this->showTimes = showTimes;
 }
+
 vector<ShowTime> Movie::viewShowTimes() {
 
     return showTimes;
