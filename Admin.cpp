@@ -14,7 +14,7 @@
 void Admin::displayRole() {
     cout<<"Admin"<<endl;
 }
-void Admin::addMovie(Movie movie ) {
+void Admin::addMovie(Movie movie) {
     movies.push_back(movie);
     cout << "Movie \"" << movie.getTitle() << "\" added successfully.\n";
 }
@@ -34,14 +34,14 @@ void Admin::removeMovie(int id) {
     }
 }
 
-vector<shared_ptr<User>> Admin::listUsers() {
-    for (auto &u : ::users) {
+vector<User> Admin::listUsers() {
+    for (auto &u : users) {
         cout << "\033[33m\033[3mID #"
-             << u->getId()
+             << u.getId()
              << "\033[0m : ";
-        u->displayRole();
+        u.displayRole();
     }
-    return ::users;
+    return users;
 }
 
 
