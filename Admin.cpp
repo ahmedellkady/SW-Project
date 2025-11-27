@@ -1,3 +1,5 @@
+
+
 //
 // Created by Lenovo on 11/26/2025.
 //
@@ -10,7 +12,7 @@
 
 
 void Admin::displayRole() {
-    cout<<"Admin::displayRole()"<<endl;
+    cout<<"Admin"<<endl;
 }
 void Admin::addMovie(Movie movie ) {
     movies.push_back(movie);
@@ -31,4 +33,15 @@ void Admin::removeMovie(int id) {
         cout << "Movie with ID " << id << " not found.\n";
     }
 }
+
+vector<shared_ptr<User>> Admin::listUsers() {
+    for (auto &u : ::users) {
+        cout << "\033[33m\033[3mID #"
+             << u->getId()
+             << "\033[0m : ";
+        u->displayRole();
+    }
+    return ::users;
+}
+
 

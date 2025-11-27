@@ -2,6 +2,9 @@
 #define USER_H
 
 #include <string>
+#include <vector>
+
+#include "Movie.h"
 using namespace std;
 
 class User {
@@ -20,8 +23,9 @@ public:
 
     void login(string email, string password);
     void registerAccount(string email, string password, int age);
-
+    vector<Movie> listMovies();
     virtual void displayRole() = 0;
+    int getId();
 };
 
 #endif

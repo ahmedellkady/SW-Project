@@ -4,6 +4,8 @@
 
 #ifndef ADMIN_H
 #define ADMIN_H
+#include <memory>
+
 #include "Movie.h"
 #include "User.h"
 
@@ -16,6 +18,7 @@ class Admin: public User {
     void removeMovie(int id);
     void displayRole() override;
 
+   vector<shared_ptr<User>> listUsers();
 
 };
 
