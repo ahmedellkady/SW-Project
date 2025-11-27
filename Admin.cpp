@@ -1,3 +1,5 @@
+
+
 //
 // Created by Lenovo on 11/26/2025.
 //
@@ -15,7 +17,7 @@ Admin::Admin(): User("", "string n", "string p", 0) {
 void Admin::displayRole() {
     cout<<"Admin"<<endl;
 }
-void Admin::addMovie(Movie movie ) {
+void Admin::addMovie(Movie movie) {
     movies.push_back(movie);
     cout << "Movie \"" << movie.getTitle() << "\" added successfully.\n";
 }
@@ -45,5 +47,16 @@ vector<Customer> Admin::listCustomers() {
     return ::Customers;
 }
 
+
+
+vector<User> Admin::listUsers() {
+    for (auto &u : users) {
+        cout << "\033[33m\033[3mID #"
+             << u.getId()
+             << "\033[0m : ";
+        u.displayRole();
+    }
+    return users;
+}
 
 
