@@ -7,8 +7,9 @@
 
 #include <vector>
 #include "Movie.h"
+#include "Customer.h"
 
-extern std::vector<Movie> movies; // ONLY declaration
-
+extern std::vector<Movie> movies; 
+extern std::vector<Customer> Customers;
 
 #endif //GLOBALS_H

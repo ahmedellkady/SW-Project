@@ -15,7 +15,7 @@ enum class Category {
 };
 
 class Movie {
-    static  int nextId ;
+  static int nextId ;
   int id ;
   string title ;
   string description ;
@@ -23,8 +23,8 @@ class Movie {
   Category category ;
   vector<ShowTime> showTimes ;
   public:
-     Movie( string title, string description,
-         int duration, Category category,vector<ShowTime> showTimes);
+    Movie( string title, string description,
+    int duration, Category category,vector<ShowTime> showTimes);
     vector<ShowTime> viewShowTimes();
     int getId() const ;
     string getTitle() const ;

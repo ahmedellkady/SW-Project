@@ -5,24 +5,13 @@ using namespace std;
 
 int User::nextId = 1;
 
-User::User() {
-    this->id = nextId;
-    nextId++;
-}
-
-void User::login(string email, string password) {
-    if (this->email == email && this->password == password) {
-        cout << "Login successful!\n";
-    } else {
-        cout << "Invalid email or password.\n";
-    }
-}
-void User::registerAccount(string email, string password, int age) {
-    this->email = email;
-    this->password = password;
-    this->age = age;
-
-    cout << "User registered successfully!\n";
+User::User(string email, string name, string password, int age) {
+    this->id = nextId++;
+	this->age = age;
+	this->email = email;
+	this->name = name;
+	this->password = password;
+	this->isAdmin = false;
 }
 
 
