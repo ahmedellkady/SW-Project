@@ -1,3 +1,0 @@
-D:/ITI LEC/Movie/cmake-build-debug/CMakeFiles/Movie.dir
-D:/ITI LEC/Movie/cmake-build-debug/CMakeFiles/edit_cache.dir
-D:/ITI LEC/Movie/cmake-build-debug/CMakeFiles/rebuild_cache.dir
