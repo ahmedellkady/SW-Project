@@ -2,6 +2,9 @@
 #define USER_H
 
 #include <string>
+#include <vector>
+
+#include "Movie.h"
 using namespace std;
 
 class User {
@@ -22,6 +25,7 @@ public:
     static int nextId;
     User(string e, string n, string p, int age);
     virtual void displayRole() = 0;
+    int getId();
 };
 
 #endif
