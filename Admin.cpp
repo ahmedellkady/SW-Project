@@ -49,14 +49,6 @@ vector<Customer> Admin::listCustomers() {
 
 
 
-vector<User> Admin::listUsers() {
-    for (auto &u : users) {
-        cout << "\033[33m\033[3mID #"
-             << u.getId()
-             << "\033[0m : ";
-        u.displayRole();
-    }
-    return users;
-}
+
 
 
