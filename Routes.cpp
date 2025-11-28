@@ -19,12 +19,13 @@ void printMenu(const vector<string>& menu, int choice) {
             cout << " >> " << menu[i] << " << " << endl;
     }
 }
-vector<string> preper_Movies_To_be_Printed_As_Menue (const vector<Movie>& Movies) {
-    vector<string> MoviesAsString;
-   for (int i = 0; i < Movies.size(); i++) {
-   MoviesAsString.push_back( Movies[i].getId() + "\n" +  Movies[i].getTitle() ) ;        
+vector<string> preper_Movies_To_be_Printed_As_Menue (const vector<Movie>& Movies, int Moviechoice=0) {
+    vector<string> Movies_as_String;
+    for (int i = 0; i < Movies.size(); i++) {
+Movies_as_String.push_back("id: "+to_string(Movies.at(i).getId())+" title: "+ Movies.at(i).getTitle() );
+  
     }
-    return MoviesAsString;
+    return Movies_as_String;
 }
 
 // Handle key press, update choice, and return action
@@ -51,7 +52,7 @@ int makeAction(int &choice, int limit) {
 }
 
 
-void Route( int menuNum, std::vector<std::string> menu ) {
+void Route( int menuNum=1,std::vector<std::string> menu={"Register", "Login"},int choice =0 ) {
     int customerid;
     while (true) {
     static int choice = 0;
@@ -87,11 +88,33 @@ void Route( int menuNum, std::vector<std::string> menu ) {
         case 2: { // user menu
             switch (action) {
              case 1:
-                    if (choice == 0) printMovies(Customers.at(customerid).listMovies());
-
+                    if (choice == 0)
+                    {Route (3,preper_Movies_To_be_Printed_As_Menue(movies));}
                     else if (choice == 1)Route(1,authMenu);
              
                     
+                    system("pause");
+                    break;
+                case -1:
+                    exit(0);
+                default:
+                    std::cout << "Use arrows to navigate\n";
+                    break;
+            }
+            break; // break for case 2
+        }
+
+        case 3: { // Movies menu
+            switch (action) {
+             case 1://enter
+                    {
+                        int index=1;
+                        for(auto show : movies.at(choice).viewShowTimes()){
+                            cout<<"Avilable Seats in Show Number "<<index;
+                            show.showAvailableSeats();
+                            ++index;
+                        } 
+                    } 
                     system("pause");
                     break;
                 case -1:

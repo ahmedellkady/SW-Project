@@ -8,7 +8,7 @@ using namespace std;
 
 
 int main() {
-    Admin admin;
+    // Admin admin;
 
     // Create some ShowTimes
     ShowTime show1(5);
@@ -20,8 +20,8 @@ int main() {
     Movie m2("The Hangover", "Comedy movie", 100, Category::Comedy, showTimes1);
 
     // Admin adds movies
-    admin.addMovie(m1);
-    admin.addMovie(m2);
+    // admin.addMovie(m1);
+    // admin.addMovie(m2);
 
     // Display all movies
     cout << "\nCurrent Movies:\n";

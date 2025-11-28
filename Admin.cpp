@@ -11,7 +11,8 @@
 #include "globals.h"
 
 
-Admin::Admin(): User("", "string n", "string p", 0) {
+Admin::Admin(string email,string name,string password,int age ): User(email, name, password, age) {
+    isAdmin=true;
 }
 
 void Admin::displayRole() {

@@ -7,5 +7,5 @@
 
 void printMenu(const std::vector<std::string>& menu, int choice);
 int makeAction(int &choice, int limit);
-void Route(int meuneNum=1,std::vector<std::string> menu={"Register", "Login"});
+void Route(int menuNum=1,std::vector<std::string> menu={"Register", "Login"},int choice =0);
 #endif

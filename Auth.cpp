@@ -27,7 +27,6 @@ void registerForm() {
 
     // Email
     cout << "| Email                | ";
-    cin.ignore();
     cin >> email;
     cout << "+----------------------+----------------------|\n";
 
