@@ -42,8 +42,8 @@ Movies_as_String.push_back("id: "+to_string(Movies.at(i).getId())+" title: "+ Mo
 vector<string> preper_Movies_Properties_As_Menue (const vector<Movie>& Movies) {
     vector<string> Movies_as_String;
     for (auto movie:movies)
-     Movies_as_String.push_back("\nid: "+to_string(movie.getId())+"\nTitle: "+movie.getTitle()+"\nDescription: "+movie.getdescription()+""
-     + "\nDuration: "  +to_string(movie.getduration())+"\n"+"Enter To see Avilable Seats \n"
+     Movies_as_String.push_back("id: "+to_string(movie.getId())+" || Title: "+movie.getTitle()+" || Description: "+movie.getdescription()+""
+     + " || Duration: "  +to_string(movie.getduration())+" "+" || Enter To see Avilable Seats "
     );
                         
     return Movies_as_String;
