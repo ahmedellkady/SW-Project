@@ -18,3 +18,10 @@ void ShowTime::showAvailableSeats() {
     }
 
 }
+    int  ShowTime::getNumberOfSeats(){
+        return numberOfSeats;
+    };
+    bool ShowTime::getIsfull(){
+        return isfull;
+    };
+    

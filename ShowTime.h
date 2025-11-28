@@ -12,7 +12,7 @@ using namespace std;
 class ShowTime {
     static  int nextId ;
     int id;
-    int numberOfSeats ;
+    int numberOfSeats=5 ;
     vector<bool> seats;
     bool isfull ;
     public:
@@ -22,8 +22,22 @@ class ShowTime {
         numberOfSeats = num;
         seats.resize(num, false);
         isfull = false;
+        
     }
     void showAvailableSeats();
+    int getId(){
+return id;
+    };
+    int getNumberOfSeats();
+    bool getIsfull();
+    void setIsfull(){
+        isfull = true;
+    };
+    int reserve_a_seat(){
+        if (numberOfSeats == 1){setIsfull();}
+       numberOfSeats-=1;
+       return 5-numberOfSeats;
+    };
 
 };
 

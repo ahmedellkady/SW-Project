@@ -17,7 +17,7 @@ Movie::Movie( string title, string description,
     this->showTimes = showTimes;
 }
 
-vector<ShowTime> Movie::viewShowTimes() {
+vector<ShowTime>& Movie::viewShowTimes() {
 
     return showTimes;
 }
@@ -28,4 +28,15 @@ string Movie::getTitle() const {
     return title;
 }
 
+  string Movie::getdescription() const {
+    return description;
+  }
+    int Movie::getduration() const {
+        return duration;
+    };
+
+    Category Movie::getcategory() const {
+
+        return category;
+    } ;
 

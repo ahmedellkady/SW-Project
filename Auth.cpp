@@ -74,7 +74,6 @@ int loginForm() {
 
     // Email
     cout << "| Email                | ";
-    cin.ignore();
     cin >> email;
     cout << "+----------------------+----------------------|\n";
 
