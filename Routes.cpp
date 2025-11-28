@@ -19,6 +19,13 @@ void printMenu(const vector<string>& menu, int choice) {
             cout << " >> " << menu[i] << " << " << endl;
     }
 }
+vector<string> preper_Movies_To_be_Printed_As_Menue (const vector<Movie>& Movies) {
+    vector<string> MoviesAsString;
+   for (int i = 0; i < Movies.size(); i++) {
+   MoviesAsString.push_back( Movies[i].getId() + "\n" +  Movies[i].getTitle() ) ;        
+    }
+    return MoviesAsString;
+}
 
 // Handle key press, update choice, and return action
 int makeAction(int &choice, int limit) {
@@ -80,7 +87,7 @@ void Route( int menuNum, std::vector<std::string> menu ) {
         case 2: { // user menu
             switch (action) {
              case 1:
-                    if (choice == 0) Customers.at(customerid).listMovies();
+                    if (choice == 0) printMovies(Customers.at(customerid).listMovies());
 
                     else if (choice == 1)Route(1,authMenu);
              
