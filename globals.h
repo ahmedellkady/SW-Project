@@ -8,9 +8,13 @@
 #include <vector>
 #include "Movie.h"
 #include "Customer.h"
+#include <iostream>
+#include "Admin.h"
+#include "Movie.h"
+#include "ShowTime.h"
+#include "globals.h"
 
-
-extern std::vector<Movie> movies; 
+extern std::vector<Movie> movies;
 extern std::vector<Customer> Customers;
 
 #endif //GLOBALS_H

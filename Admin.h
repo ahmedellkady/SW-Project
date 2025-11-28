@@ -12,7 +12,7 @@
 class Admin: public User {
 
     public:
-    Admin();
+    Admin(string email,string name,string password,int age );
     vector<User> users;
     void addMovie(Movie movie);
     void removeMovie(int id);
