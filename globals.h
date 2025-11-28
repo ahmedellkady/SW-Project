@@ -16,5 +16,5 @@
 
 extern std::vector<Movie> movies;
 extern std::vector<Customer> Customers;
-
+extern Admin admin ;
 #endif //GLOBALS_H

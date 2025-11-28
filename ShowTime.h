@@ -14,12 +14,13 @@ class ShowTime {
     int id;
     int numberOfSeats=5 ;
     vector<bool> seats;
+    string date ;
     bool isfull ;
     public:
-    ShowTime(int num) {
-        id = nextId;
-        nextId++;
+    ShowTime(int num ,string date) {
+        id = nextId++;
         numberOfSeats = num;
+        this->date = date;
         seats.resize(num, false);
         isfull = false;
         
@@ -29,6 +30,7 @@ class ShowTime {
 return id;
     };
     int getNumberOfSeats();
+    string getDate(){return date;}
     bool getIsfull();
     void setIsfull(){
         isfull = true;

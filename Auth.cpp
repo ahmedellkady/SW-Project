@@ -86,6 +86,10 @@ int loginForm() {
     // Validate login
     bool found = false;
     int customerID = 100;
+    if (admin.getEmail()==email && admin.getPassword()==password) {
+
+        return -100;
+    }
     for (auto& customer : Customers) {
         if (customer.getEmail() == email && customer.getPassword() == password) {
             found = true;

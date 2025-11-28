@@ -16,12 +16,12 @@ int route = 0;
 int indexOfCustomerLoggedIn;
 int main() {
     //make static Admin
-    Admin admin("a", "a","a", 150);
-    ShowTime show1(5);
-    ShowTime show2(5);
+
+    ShowTime show1(5,"12:00");
+    ShowTime show2(5,"13:00");
     vector<ShowTime> showTimes1 = {show1, show2};
-    
-    // Admin adds movies  
+
+    // Admin adds movies
     Movie m1("Avengers", "Action movie", 120, Category::Action, showTimes1);
     Movie m2("The Hangover", "Comedy movie", 100, Category::Comedy, showTimes1);
 

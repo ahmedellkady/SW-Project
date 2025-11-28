@@ -13,6 +13,7 @@
 
 Admin::Admin(string email,string name,string password,int age ): User(email, name, password, age) {
     isAdmin=true;
+    id = -100;
 }
 
 void Admin::displayRole() {

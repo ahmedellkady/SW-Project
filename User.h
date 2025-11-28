@@ -25,6 +25,7 @@ public:
     User(string e, string n, string p, int age);
     vector<Movie> listMovies();
     virtual void displayRole() = 0;
+    int getId() {return id ;}
 };
 
 #endif
