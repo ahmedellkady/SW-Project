@@ -11,12 +11,8 @@
 using namespace std;
 
 
-
-int route = 0;
-int indexOfCustomerLoggedIn;
-int main() {
-    //make static Admin
-
+void Starter(){
+        //make static Admin
     ShowTime show1(5,"12:00");
     ShowTime show2(5,"13:00");
     vector<ShowTime> showTimes1 = {show1, show2};
@@ -27,6 +23,14 @@ int main() {
 
     admin.addMovie(m1);
     admin.addMovie(m2);    // Create movies
+}
+
+
+
+
+
+int main() {
+    Starter();
      Route();
 
     cout << "Bye!" << endl;

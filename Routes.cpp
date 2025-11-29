@@ -18,7 +18,6 @@ using namespace std;
 // Print the menu with highlight
 void printMenu(const vector<string>& menu, int choice) {
         system("cls");
-
         if (menu.empty()) {
             cout << "Menu is empty!\n";
             cout << "Press any key to return...\n";
@@ -43,12 +42,21 @@ void printMenu(const vector<string>& menu, int choice) {
         }
     }
 
-vector<string> preper_Movies_To_be_Printed_As_Menue (const vector<Movie>& Movies, int Moviechoice=0) {
-    vector<string> Movies_as_String;
-    for (int i = 0; i < Movies.size(); i++) {
-Movies_as_String.push_back("id: "+to_string(Movies.at(i).getId())+" title: "+ Movies.at(i).getTitle() );
+// vector<string> preper_Movies_To_be_Printed_As_Menue (const vector<Movie>& Movies, int Moviechoice=0) {
+//     vector<string> Movies_as_String;
+//     for (int i = 0; i < Movies.size(); i++) {
+// Movies_as_String.push_back("id: "+to_string(Movies.at(i).getId())+" title: "+ Movies.at(i).getTitle() );
   
-    }
+//     }
+//     return Movies_as_String;
+// }
+vector<string> preper_Movies_Properties_As_Menue_For_Admin (const vector<Movie>& Movies) {
+    vector<string> Movies_as_String;
+    for (auto movie:movies)
+     Movies_as_String.push_back("id: "+to_string(movie.getId())+" || Title: "+movie.getTitle()+" || Description: "+movie.getdescription()+""
+     + " || Duration: "  +to_string(movie.getduration())+" "
+    );
+                        
     return Movies_as_String;
 }
 vector<string> preper_Movies_Properties_As_Menue (const vector<Movie>& Movies) {
@@ -91,12 +99,13 @@ vector<string> preper_Movies_Showtimes_As_Menue ( vector<Movie>& Movies, int cho
 }
 
 // Handle key press, update choice, and return action
-int makeAction(int &choice, int limit) {
-
+int makeAction(int &choice, int limit,const vector<string>& menu = {}) {
+ bool lastIsNumber = isNumber(menu.back());
+        int size = menu.size();
+        if (lastIsNumber) { limit -= 1; }
     int key = _getch();
 
     if (key == 27) { //ESC
-        cin.ignore();
         return -1;
     }
     else if (key == 224) { // Arrow keys
@@ -123,7 +132,7 @@ void Route( int menuNum=1,std::vector<std::string> menu={"Register", "Login"},in
 
     printMenu(menu, choice);
     
-    int action = makeAction(choice, menu.size());
+    int action = makeAction(choice, menu.size(), menu);
 
     switch (menuNum) {
         case 1: { // auth menu
@@ -141,17 +150,20 @@ void Route( int menuNum=1,std::vector<std::string> menu={"Register", "Login"},in
 
                             system("pause");
                             choice =0;
-                            Route(5/*case switch number 2*/,adminsMenu);
+                            Route(5/*case switch number 5*/,adminsMenu);
                         }else if (customerid<0){
                       system("pause");
-                        Route(1,authMenu);}
+                        Route(1,authMenu);
+                    }
                           system("pause");
+                          choice = 0;
                     Route(2/*case switch number 2*/,usersMenu);// user menu >>show movies >>exit
                     }
                   
                     break;
                 case -1:
-                {cout<<"Bye!";
+                {
+                    cout<<"Bye!";
                     exit(0);
                 }
 
@@ -170,7 +182,8 @@ void Route( int menuNum=1,std::vector<std::string> menu={"Register", "Login"},in
                     system("pause");
                     break;
                 case -1:
-                    Route();
+                 choice = 0;
+               Route(1,authMenu);
                 default:
                     std::cout << "Use arrows to navigate\n";
                     break;
@@ -205,8 +218,9 @@ void Route( int menuNum=1,std::vector<std::string> menu={"Register", "Login"},in
                     } 
                     system("pause");
                     break;
-                case -1://Esc back to movies
-                Route (2, preper_Movies_Properties_As_Menue(movies));
+                case -1://Esc back to show movies or exit
+                 choice = 0;
+                Route (2,usersMenu );
 
                 default:
                     std::cout << "Use arrows to navigate\n";
@@ -224,14 +238,13 @@ void Route( int menuNum=1,std::vector<std::string> menu={"Register", "Login"},in
                     system("pause");
                     break;
                 case -1://Esc back to movies
-                 Route (3, preper_Movies_Properties_As_Menue(movies));
-
-
+                choice = 0;
+                 {Route (3,preper_Movies_Properties_As_Menue (movies));}
                 default:
                     std::cout << "Use arrows to navigate\n";
                     break;
             }
-            break; // break for case 3
+            break; 
         }
         case 5: { // Admin menu
             switch (action) {
