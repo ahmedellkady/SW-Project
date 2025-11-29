@@ -25,6 +25,7 @@ cmake_install.cmake
 *.dll
 *.so
 *.a
+app.exe
 
 # Other
 shelf/

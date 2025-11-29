@@ -1,8 +1,11 @@
 #include <vector>
 #include <iostream>
+#include <windows.h>
 #include <conio.h>
 #include "Auth.h"
 #include "globals.h"
+#include <iomanip>
+
 using namespace std;
 
         vector<string> usersMenu {"show Movies", "Exit"};
@@ -14,6 +17,10 @@ using namespace std;
         if (!isdigit(c)) return false;
     }
     return true;
+}
+
+void setColor(int color) {
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
 }
 // Print the menu with highlight
 void printMenu(const vector<string>& menu, int choice) {
@@ -289,30 +296,63 @@ void Route( int menuNum=1,std::vector<std::string> menu={"Register", "Login"},in
 
                         case 1: // listMovies
                         {
-                            vector<string> movieMenu = preper_Movies_Properties_As_Menue(movies);
-                            int movieChoice = 0;
-                            while (true) {
-                                printMenu(movieMenu, movieChoice);
-                                int action = makeAction(movieChoice, movieMenu.size());
-                                if (action == 1 || action == -1)
-                                    break;
-                            }
-                            Route(5, adminsMenu);
+                            system("cls");
+                          int index = 0;
+      cout << left 
+         << setw(5) << "ID" 
+         << setw(20) << "Title" 
+         << setw(10) << "Duration" << endl;
+    cout << "----------------------------------------" << endl;
+if (movies.size() == 0)cout << "No Movies in the  List" << endl;
+   for (const auto& movie : movies) {
+        setColor(9 + (index % 6)); // ألوان مختلفة بالتتابع (9 → 14)
+        cout << left
+             << setw(5) << movie.getId()
+             << setw(20) << movie.getTitle()
+             << setw(10) << movie.getduration()
+             << endl;
+
+        setColor(7); // رجّع اللون الافتراضي بعد الطباعة
+        index++;
+    }
+                    system("pause");
+
                             break;
                         }
                         case 2: // listUsers
-                        {
-                            vector<string> usersMenuList = preper_Users_As_Menu(Customers);
-                            int userChoice = 0;
-                            while (true) {
-                                printMenu(usersMenuList, userChoice);
-                                int action = makeAction(userChoice, usersMenuList.size());
-                                if (action == 1 || action == -1) // Enter أو ESC
-                                    break;
-                            }
-                            Route(5, adminsMenu);
-                            break;
-                        }
+{
+    system("cls");
+    int index = 0;
+
+    // عنوان الجدول
+    cout << left 
+         << setw(10) << "ID"
+         << setw(20) << "Name"
+         << setw(25) << "Email"
+         << setw(10) << "Age" << endl;
+    cout << "--------------------------------------------------------------" << endl;
+
+    if (Customers.size() == 0) {
+        cout << "No Customers in the List" << endl;
+    } else {
+        for (const auto& customer : Customers) {
+            setColor(9 + (index % 6)); // ألوان حسب الـ index
+
+            cout << left
+                 << setw(10) << customer.getId()
+                 << setw(20) << customer.getName()
+                 << setw(25) << customer.getEmail()
+                 << setw(10) << customer.getAge()
+                 << endl;
+
+            setColor(7); // رجّع اللون الافتراضي
+            ++index;
+        }
+    }
+
+    system("pause");
+    break;
+}
 
                         case 3: // Add Movie
                         {
@@ -379,6 +419,7 @@ void Route( int menuNum=1,std::vector<std::string> menu={"Register", "Login"},in
 
 
                         case 4: // Exit
+                        choice = 0;
                             Route(1, authMenu,0);// go back to auth menu
                         break;
                         default:
